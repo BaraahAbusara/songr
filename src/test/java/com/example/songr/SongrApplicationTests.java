@@ -14,7 +14,6 @@ class SongrApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 	@Test
 	void albumClassWorks() {
 		Album album = new Album("test","tester",22,8.9,"");
