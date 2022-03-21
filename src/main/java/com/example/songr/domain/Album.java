@@ -1,18 +1,32 @@
 package com.example.songr.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+@Entity
 public class Album {
     private String title;
     private String artist;
     private int songCount;
     private double length ;
     private String imageURL;
-
+    @Id
+    @GeneratedValue
+    private int id ;
     public Album(String title, String artist, int songCount, double length, String imageURL) {
         this.title = title;
         this.artist = artist;
         this.songCount = songCount;
         this.length = length;
         this.imageURL = imageURL;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -58,11 +72,12 @@ public class Album {
     @Override
     public String toString() {
         return "Album{" +
+                ", id=" + id + '\'' +
                 "title='" + title + '\'' +
                 ", artist='" + artist + '\'' +
                 ", songCount=" + songCount +
                 ", length=" + length +
-                ", imageURL='" + imageURL + '\'' +
+                ", imageURL='" + imageURL +
                 '}';
     }
 }
