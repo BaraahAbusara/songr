@@ -7,12 +7,18 @@ import javax.persistence.Id;
 public class Album {
     private String title;
     private String artist;
-    private int songCount;
-    private double length ;
     private String imageURL;
+
+    private double length ;
+
     @Id
     @GeneratedValue
     private int id ;
+    private int songCount;
+
+    public Album() {
+    }
+
     public Album(String title, String artist, int songCount, double length, String imageURL) {
         this.title = title;
         this.artist = artist;

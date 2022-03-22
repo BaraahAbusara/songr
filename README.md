@@ -13,3 +13,10 @@ next you can go to the following routs :
 you will get bara'ah capitalized => BARA'AH (red colored).
 - `/album` which will take you to album page that will show you an album in JSON format. 
 - `/albums` which will take you to albums page and show you a list of albums in JSON format. 
+------------------------------------
+## version 2 additions 
+***
+To use this version of my project you have to create a table in your database , my table called `album`.  
+Then update your application.properties : your username and database name.  
+Now you are able to add your own albums by filling the form in `/allalbums` and you will find all albums rendered below the form as well. 
+
