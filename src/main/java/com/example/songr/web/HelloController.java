@@ -1,24 +1,20 @@
 package com.example.songr.web;
 
 import com.example.songr.domain.Album;
-import com.example.songr.infrastructure.RepoAlbum;
-import com.example.songr.infrastructure.RepoSong;
+import com.example.songr.infrastructure.repoAlbum;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 @Controller
 public class HelloController {
-    private final RepoAlbum repoAlbum ;
-    private final RepoSong repoSong ;
-
-    public HelloController(RepoAlbum repoAlbum, RepoSong repoSong) {
-        this.repoAlbum = repoAlbum;
-        this.repoSong = repoSong;
-    }
-
     @ResponseStatus(value = HttpStatus.OK)
     @GetMapping("/hello")
     void hello (@RequestParam(name="name", required = false , defaultValue = "there") String name , Model model){
@@ -41,8 +37,8 @@ public class HelloController {
         return "capitalize" ;
     }
 
-//    @Autowired
-//    RepoAlbum repoAlbum ;
+    @Autowired
+    repoAlbum repoAlbum ;
 
 //    @ResponseBody
 //    @GetMapping("/addalbumtest") //worked
@@ -70,23 +66,17 @@ public class HelloController {
 //        model.addAttribute("albums" , repoAlbum.findAll());
 //        return "album";
 //    }
-//
-//    @PostMapping("/addalbum")
-//    public RedirectView addAlbum(@ModelAttribute Album newAlbum){
-//        repoAlbum.save(newAlbum);
-//        return new RedirectView("/allalbums");
-//    }
-//
-//    @GetMapping("/allalbums")
-//    public String allAlbums(Model model){
-//        model.addAttribute("albumsList",repoAlbum.findAll());
-//        return "album";
-//    }
 
-    @ResponseBody
-    @PostMapping("/Albums")
-    Album createNewAlbum(@RequestBody Album album){
-        return repoAlbum.save(album);
+    @PostMapping("/addalbum")
+    public RedirectView addAlbum(@ModelAttribute Album newAlbum){
+        System.out.println("***************************"+newAlbum);
+        repoAlbum.save(newAlbum);
+        return new RedirectView("/allalbums");
     }
 
+    @GetMapping("/allalbums")
+    public String allAlbums(Model model){
+        model.addAttribute("albumsList",repoAlbum.findAll());
+        return "album";
+    }
 }
