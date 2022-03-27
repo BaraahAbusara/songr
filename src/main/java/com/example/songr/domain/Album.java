@@ -14,10 +14,8 @@ public class Album {
     @Id
     @GeneratedValue
     private int id ;
-    private int songCount;
 
-    public Album() {
-    }
+    private int songCount;
 
     public Album(String title, String artist, int songCount, double length, String imageURL) {
         this.title = title;
@@ -25,6 +23,9 @@ public class Album {
         this.songCount = songCount;
         this.length = length;
         this.imageURL = imageURL;
+    }
+
+    public Album() {
     }
 
     public int getId() {

@@ -7,13 +7,13 @@
     <title>album</title>
 </head>
 <body>
+
     <form action="/addalbum" method="post">
         <p>Album title</p><input type="text" name="title"/></br>
         <p>Album artist</p><input type="text" name="artist"/></br>
-        <p>Album length</p><input type="text" name="length"/></br>
-        <p>Album song count</p><input type="text" name="songCount"/></br>
+        <p>Album length</p><input type="number" name="length" step ="0.01" value="0.0"/></br>
+        <p>Album song count</p><input type="number" name="songCount" value="0"/></br>
         <p>Album imageURL</p><input type="text" name="imageURL" /></br>
-
         <button type="submit">Submit</button>
     </form>
 

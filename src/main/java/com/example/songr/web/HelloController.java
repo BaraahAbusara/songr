@@ -69,6 +69,7 @@ public class HelloController {
 
     @PostMapping("/addalbum")
     public RedirectView addAlbum(@ModelAttribute Album newAlbum){
+        System.out.println("***************************"+newAlbum);
         repoAlbum.save(newAlbum);
         return new RedirectView("/allalbums");
     }
