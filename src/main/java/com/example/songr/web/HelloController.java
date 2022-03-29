@@ -4,6 +4,7 @@ import com.example.songr.domain.Album;
 import com.example.songr.domain.Song;
 import com.example.songr.infrastructure.RepoAlbum;
 import com.example.songr.infrastructure.RepoSong;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.stereotype.Controller;
@@ -12,17 +13,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 import java.util.List;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 @Controller
 public class HelloController {
-    private final RepoAlbum repoAlbum ;
-    private final RepoSong repoSong ;
-
-    public HelloController(RepoAlbum repoAlbum, RepoSong repoSong) {
-        this.repoAlbum = repoAlbum;
-        this.repoSong = repoSong;
-    }
-
     @ResponseStatus(value = HttpStatus.OK)
     @GetMapping("/hello")
     public void hello (@RequestParam(name="name", required = false , defaultValue = "there") String name , Model model){
@@ -47,6 +43,7 @@ public class HelloController {
 
 //    @Autowired  //old way
 //    RepoAlbum repoAlbum ;
+
 
 //    @ResponseBody
 //    @GetMapping("/addalbumtest") //worked
@@ -128,5 +125,6 @@ public class HelloController {
     @GetMapping("/songs")
     List<Song> getAllSongs() {
         return repoSong.findAll();
+
     }
 }

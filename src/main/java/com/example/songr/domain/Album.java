@@ -13,12 +13,10 @@ import java.util.Set;
 @NoArgsConstructor
 @RequiredArgsConstructor
 
-public class Album {
-    @NonNull
-    private String title;
-    @NonNull
-    private String artist;
 
+public class Album {
+    private String title;
+    private String artist;
     private String imageURL;
     private double length ;
 
@@ -26,10 +24,10 @@ public class Album {
     List<Song> songsList ;
 
 
-    @Setter(value= AccessLevel.NONE)
+    private double length ;
+
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(name="id", nullable = false)
+    @GeneratedValue
     private int id ;
 
     private int songCount;
