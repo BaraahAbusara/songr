@@ -1,13 +1,24 @@
 package com.example.songr;
 
 import com.example.songr.domain.Album;
+import com.example.songr.web.HelloController;
+import org.hamcrest.Matchers;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.ui.Model;
+import org.springframework.web.context.WebApplicationContext;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 class SongrApplicationTests {
@@ -33,5 +44,29 @@ class SongrApplicationTests {
 //		assertEquals(expected,albums.toString());
 //
 //	}
+	@Autowired
+	private WebApplicationContext webapplicationContext;
+
+	private MockMvc mockMvc;
+
+	@BeforeEach
+	public void setUp() {
+		mockMvc = MockMvcBuilders.webAppContextSetup(webapplicationContext).build();
+	}
+	@Autowired
+	HelloController helloController;
+
+	@Test
+	public void testHelloController() throws Exception {
+
+		mockMvc.perform(MockMvcRequestBuilders.get("/hello"))
+				.andExpect(status().isOk())
+				.andExpect(content().contentType("html;charset=UTF-8"))
+				.andExpect(view().name("hello"))
+				.andExpect(content().string(Matchers.containsString("Hello")));
+
+
+	}
+
 
 }

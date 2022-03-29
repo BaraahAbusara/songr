@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -11,6 +12,7 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor
 @RequiredArgsConstructor
+
 public class Album {
     @NonNull
     private String title;
@@ -21,7 +23,7 @@ public class Album {
     private double length ;
 
     @OneToMany(mappedBy = "album")
-    private Set<Song> songs ;
+    List<Song> songsList ;
 
 
     @Setter(value= AccessLevel.NONE)
