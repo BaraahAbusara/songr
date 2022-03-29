@@ -1,9 +1,10 @@
 package com.example.songr.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
-
+@JsonIgnoreProperties({"album"})
 @Getter
 @Setter
 @Entity
@@ -20,12 +21,11 @@ public class Song {
     @NonNull
     private String title ;
 
-    @ManyToOne
-    private Album album ;
-
-
     private double length ;
     private int trackNumber;
+
+    @ManyToOne
+    Album album ;
 
 
 }
