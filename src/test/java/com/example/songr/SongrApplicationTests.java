@@ -44,29 +44,26 @@ class SongrApplicationTests {
 //		assertEquals(expected,albums.toString());
 //
 //	}
-	@Autowired
-	private WebApplicationContext webapplicationContext;
 
-	private MockMvc mockMvc;
-
-	@BeforeEach
-	public void setUp() {
-		mockMvc = MockMvcBuilders.webAppContextSetup(webapplicationContext).build();
-	}
-	@Autowired
-	HelloController helloController;
-
-	@Test
-	public void testHelloController() throws Exception {
-
-		mockMvc.perform(MockMvcRequestBuilders.get("/hello"))
-				.andExpect(status().isOk())
-				.andExpect(content().contentType("html;charset=UTF-8"))
-				.andExpect(view().name("hello"))
-				.andExpect(content().string(Matchers.containsString("Hello")));
-
-
-	}
-
-
+//	@Autowired
+//	private WebApplicationContext webapplicationContext;
+//
+//	private MockMvc mockMvc;
+//
+//	@BeforeEach
+//	public void setUp() {
+//		mockMvc = MockMvcBuilders.webAppContextSetup(webapplicationContext).build();
+//	}
+//	@Autowired
+//	HelloController helloController;
+//
+//	@Test
+//	public void testHelloController() throws Exception {
+//
+//		mockMvc.perform(MockMvcRequestBuilders.get("/hello"))
+//				.andExpect(status().isOk())
+//				.andExpect(content().contentType("html;charset=UTF-8"))
+//				.andExpect(view().name("hello"))
+//				.andExpect(content().string(Matchers.containsString("Hello")));
+//	}
 }

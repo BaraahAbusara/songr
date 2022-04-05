@@ -7,7 +7,7 @@
   <title>song</title>
 </head>
 <body>
-<form action="/addsong" method="post">
+<form action="/addSong" method="post">
   <p>Song title</p><input type="text" name="title"/></br/>
   <p>Song album</p><input type="text" name="album"/></br>
   <p>Song length</p><input type="number" name="length" value="0.0"/></br>
@@ -19,7 +19,6 @@
 <ul th:each="song: ${songsList}">
   <p>ID</p><span th:text="${song.id}"></span>
   <p>Song title :</p><span th:text="${song.title}"></span>
-  <p>Song album :</p><span th:text="${song.album}"></span>
   <p>Song length :</p><span th:number="${song.length}"></span>
   <p>Song track number :</p><span th:number="${song.trackNumber}"></span>
   <p>-------------------------------------------------------------</p>

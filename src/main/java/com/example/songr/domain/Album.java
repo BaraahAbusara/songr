@@ -22,17 +22,27 @@ public class Album {
     private String imageURL;
     private double length ;
 
-    @OneToMany(mappedBy = "album")
-    List<Song> songsList ;
-
-
     @Setter(value= AccessLevel.NONE)
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.AUTO)
     @Column(name="id", nullable = false)
     private int id ;
 
     private int songCount;
 
+    @OneToMany(mappedBy = "album")
+    List<Song> songsList ;
 
+    @Override
+    public String toString() {
+        return "Album{" +
+                "title='" + title + '\'' +
+                ", artist='" + artist + '\'' +
+                ", imageURL='" + imageURL + '\'' +
+                ", length=" + length +
+                ", songsList=" + songsList +
+                ", id=" + id +
+                ", songCount=" + songCount +
+                '}';
+    }
 }

@@ -15,13 +15,6 @@ import java.util.List;
 
 @Controller
 public class HelloController {
-    private final RepoAlbum repoAlbum ;
-    private final RepoSong repoSong ;
-
-    public HelloController(RepoAlbum repoAlbum, RepoSong repoSong) {
-        this.repoAlbum = repoAlbum;
-        this.repoSong = repoSong;
-    }
 
     @ResponseStatus(value = HttpStatus.OK)
     @GetMapping("/hello")
@@ -45,88 +38,9 @@ public class HelloController {
         return "capitalize" ;
     }
 
-//    @Autowired  //old way
-//    RepoAlbum repoAlbum ;
 
-//    @ResponseBody
-//    @GetMapping("/addalbumtest") //worked
-//    Album album(){
-//        Album album =new Album("title1","artist1",303,3.05,"");
-//        repoAlbum.save(album);
-//        return album ;
-//    }
 
-//    @ResponseBody
-//    @GetMapping("/albums")
-//    List<Album> createAlbum () {
-//        List<Album> albums =new ArrayList<>();
-//        albums.add(new Album("title1","artist1",303,3.05,"aya"));
-//        albums.add(new Album("title2","artist2",202,2.05,""));
-//        Album album= new Album("title3","artist3",101,1.05,"aya");
-//
-//        repoAlbum.saveAll(albums);
-//
-//        return albums;
-//    }
 
-//    @GetMapping("/getalbum")
-//    public String getAlbum(Model model){
-//        model.addAttribute("albums" , repoAlbum.findAll());
-//        return "album";
-//    }
-//
-    @PostMapping("/addalbum")
-    public RedirectView addAlbum(@ModelAttribute Album newAlbum){
-        repoAlbum.save(newAlbum);
-        return new RedirectView("/allalbums");
-    }
 
-    @GetMapping("/allalbums")
-    public String allAlbums(Model model){
-        model.addAttribute("albumsList",repoAlbum.findAll());
-        return "album";
-    }
 
-    @ResponseBody
-    @PostMapping("/albums")
-    Album createNewAlbum(@RequestBody Album album){
-        return repoAlbum.save(album);
-    }
-
-    @ResponseBody
-    @GetMapping("/albums")
-    List<Album> getAllAlbums() {
-        return repoAlbum.findAll();
-    }
-
-    @ResponseBody
-    @PostMapping("/albums/{id}")
-    Song addNewSongToAlbum (@RequestBody  Song song , @PathVariable Integer id){
-        Album album = repoAlbum.findById(id).orElseThrow();
-        song.setAlbum(album);
-        return repoSong.save(song);
-    }
-
-    @PostMapping("/addsong")
-    public RedirectView addSong(@ModelAttribute Song newSong){
-        repoSong.save(newSong);
-        return new RedirectView("/allsongs");
-    }
-
-    @GetMapping("/allsongs")
-    public String allSongs(Model model){
-        model.addAttribute("songsList",repoSong.findAll());
-        return "song";
-    }
-
-    @ResponseBody
-    @PostMapping("/songs")
-    Song showAllSongs(@RequestBody Song song){
-        return repoSong.save(song);
-    }
-    @ResponseBody
-    @GetMapping("/songs")
-    List<Song> getAllSongs() {
-        return repoSong.findAll();
-    }
 }
