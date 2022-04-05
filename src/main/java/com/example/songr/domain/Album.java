@@ -13,19 +13,28 @@ import java.util.Set;
 @NoArgsConstructor
 @RequiredArgsConstructor
 
-public class Album {
-    @NonNull
-    private String title;
-    @NonNull
-    private String artist;
 
+public class Album {
+    private String title;
+    private String artist;
     private String imageURL;
     private double length ;
 
+<<<<<<< HEAD
     @Setter(value= AccessLevel.NONE)
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     @Column(name="id", nullable = false)
+=======
+    @OneToMany(mappedBy = "album")
+    List<Song> songsList ;
+
+
+    private double length ;
+
+    @Id
+    @GeneratedValue
+>>>>>>> eaa0f1c341ee2ca025a00c7277d56187e214ad75
     private int id ;
 
     private int songCount;
