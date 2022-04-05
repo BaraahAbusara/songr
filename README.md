@@ -14,9 +14,10 @@ you will get bara'ah capitalized => BARA'AH (red colored).
 - `/album` which will take you to album page that will show you an album in JSON format. 
 - `/albums` which will take you to albums page and show you a list of albums in JSON format. 
 ------------------------------------
-## version 2 additions 
+## version 2  
 ***
 To use this version of my project you have to create a table in your database , my table called `album`.  
 Then update your application.properties : your username and database name.  
-Now you are able to add your own albums by filling the form in `/allalbums` and you will find all albums rendered below the form as well. 
-
+Now you can go to the home page `localhost:8080/`and enjoy reviewing the albums in the site.  
+You can also add your albums , check for their details and add songs to them and review the whole album with its songs.
+You can also view whole songs available in the website. 

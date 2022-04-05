@@ -11,7 +11,6 @@ import java.util.Set;
 @Setter
 @Entity
 @NoArgsConstructor
-@RequiredArgsConstructor
 
 
 public class Album {
@@ -20,27 +19,18 @@ public class Album {
     private String imageURL;
     private double length ;
 
-<<<<<<< HEAD
     @Setter(value= AccessLevel.NONE)
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     @Column(name="id", nullable = false)
-=======
+    private int id ;
+
     @OneToMany(mappedBy = "album")
     List<Song> songsList ;
 
-
-    private double length ;
-
-    @Id
-    @GeneratedValue
->>>>>>> eaa0f1c341ee2ca025a00c7277d56187e214ad75
-    private int id ;
 
     private int songCount;
 
-    @OneToMany(mappedBy = "album")
-    List<Song> songsList ;
 
     @Override
     public String toString() {
