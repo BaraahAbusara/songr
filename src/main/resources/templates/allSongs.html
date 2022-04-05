@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>All songs</title>
+</head>
+<body>
+    <form  action="/" method="GET" >
+    <button type="submit">Home</button>
+    </form>
+    <ul th:each="song: ${songsList}">
+        <form>
+            <p>Song Id</p><span th:text="${song.id}"></span>
+            <p>Song title :</p><span th:text="${song.title}"></span>
+            <p>Song length :</p><span th:number="${song.length}"></span>
+            <p>Song trackNumber</p><span th:number="${song.trackNumber}"></span>
+        </form>
+    </ul>
+</body>
+</html>

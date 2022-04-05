@@ -1,10 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link th:href="@{/index.css}" rel="stylesheet">
+
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
 </head>
 <body>
-<h1>Welcome home</h1>
+<header>
+    <div class="overlay"></div>
+    <h1>All About Music</h1>
+    </br>
+    <form action="/addNewAlbum" method="GET">
+        <button type="submit">Add new album</button>
+    </form>
+    <form action="/viewAllSongs" method="GET">
+        <button type="submit">View all songs</button>
+    </form>
+    </div>
+</header>
+
+<main>
+
+
+<ul th:each="album: ${albumsList}" >
+    <form  th:action="@{/albums/{id}(id=${album.id})}" method="GET"  class="card">
+
+        <div class="inner"></div>
+        <img th:src="@{${album.imageURL}}" alt="Album poster" class="albumImage">
+        <span th:text="${album.title}" class="title"></span>
+        <span th:text="${album.artist}" class="subtitle"></span>
+        <button type="submit" class="subtitle">View Album Details</button>
+        </div>
+    </form>
+</ul>
+</main>
+<footer>
+    <a class="footerLink" href="https://github.com/BaraahAbusara">Visit My GitHub</a>
+    <a class="footerLink" > Baraáh Abusara</a>
+</footer>
+
 </body>
 </html>

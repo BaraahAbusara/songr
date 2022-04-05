@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link th:href="@{/album.css}" rel="stylesheet">
+
+<head>
+    <meta charset="UTF-8">
+    <title>album</title>
+</head>
+<body class='input-fields'>
+<div class='container'>
+    <div class='window'>
+        <div class='overlay'></div>
+        <div class='content'>
+            <div class='welcome'>Hello There!</div>
+            <div class='subtitle'>We appreciate helping us in creating the best website for musical albums! Thank you!</div>
+
+        <form action="/addNewAlbum" method="POST">
+        <input type="text" name="title" class='input-line full-width' placeholder='Album title'/></br>
+        <input type="text" name="artist" class='input-line full-width' placeholder='Album artist'/></br>
+<!--        <p>Album length</p><input type="number" name="length" value="0.0"/></br>-->
+<!--        <p>Album song count</p><input type="number" name="songCount" value="0"/></br>-->
+        <input type="text" name="imageURL" class='input-line full-width' placeholder='Album imageURL'/></br>
+
+        <button type="submit" class='ghost-round full-width'>Submit</button>
+<!--        th:action vs action -->
+    </form>
+            <div class='spacing'>Or you can go back <span class='highlight'>Home</span></div>
+    <form action="/" method="GET">
+        <button type="submit" class='ghost-round full-width'>Home</button>
+    </form>
+</div>
+</div>
+</div>
+
+</body>
+</html>

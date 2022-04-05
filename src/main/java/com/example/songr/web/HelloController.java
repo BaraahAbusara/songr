@@ -19,6 +19,10 @@ import java.util.Locale;
 
 @Controller
 public class HelloController {
+<<<<<<< HEAD
+
+=======
+>>>>>>> eaa0f1c341ee2ca025a00c7277d56187e214ad75
     @ResponseStatus(value = HttpStatus.OK)
     @GetMapping("/hello")
     public void hello (@RequestParam(name="name", required = false , defaultValue = "there") String name , Model model){
@@ -41,9 +45,9 @@ public class HelloController {
         return "capitalize" ;
     }
 
-//    @Autowired  //old way
-//    RepoAlbum repoAlbum ;
 
+<<<<<<< HEAD
+=======
 
 //    @ResponseBody
 //    @GetMapping("/addalbumtest") //worked
@@ -52,38 +56,13 @@ public class HelloController {
 //        repoAlbum.save(album);
 //        return album ;
 //    }
+>>>>>>> eaa0f1c341ee2ca025a00c7277d56187e214ad75
 
-//    @ResponseBody
-//    @GetMapping("/albums")
-//    List<Album> createAlbum () {
-//        List<Album> albums =new ArrayList<>();
-//        albums.add(new Album("title1","artist1",303,3.05,"aya"));
-//        albums.add(new Album("title2","artist2",202,2.05,""));
-//        Album album= new Album("title3","artist3",101,1.05,"aya");
-//
-//        repoAlbum.saveAll(albums);
-//
-//        return albums;
-//    }
 
-//    @GetMapping("/getalbum")
-//    public String getAlbum(Model model){
-//        model.addAttribute("albums" , repoAlbum.findAll());
-//        return "album";
-//    }
-//
-    @PostMapping("/addalbum")
-    public RedirectView addAlbum(@ModelAttribute Album newAlbum){
-        repoAlbum.save(newAlbum);
-        return new RedirectView("/allalbums");
-    }
 
-    @GetMapping("/allalbums")
-    public String allAlbums(Model model){
-        model.addAttribute("albumsList",repoAlbum.findAll());
-        return "album";
-    }
 
+<<<<<<< HEAD
+=======
     @ResponseBody
     @PostMapping("/albums")
     Album createNewAlbum(@RequestBody Album album){
@@ -127,4 +106,5 @@ public class HelloController {
         return repoSong.findAll();
 
     }
+>>>>>>> eaa0f1c341ee2ca025a00c7277d56187e214ad75
 }

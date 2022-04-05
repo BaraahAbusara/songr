@@ -20,12 +20,20 @@ public class Song {
 
     @NonNull
     private String title ;
-
     private double length ;
     private int trackNumber;
 
     @ManyToOne
     Album album ;
 
-
+    @Override
+    public String toString() {
+        return "Song{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", length=" + length +
+                ", trackNumber=" + trackNumber +
+                ", album=" + album +
+                '}';
+    }
 }
